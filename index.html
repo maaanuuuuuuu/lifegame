@@ -1,7 +1,225 @@
-<!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+    <body>
+        <div class="toolBox">
+            <button id='launchSimulation' onclick="launchSimulation()">Launch Simulation</button>
+            <button id='pauseSimulation' onclick="pauseSimulation()">Pause Simulation</button>
+            <button id='stopSimulation' onclick="stopSimulation()">Stop Simulation</button>
+        </div>
+        <div class="info">
+            <h2>Counter: </h2><h2 id='counter'>0</h2>
+            <h2>Population: </h2><h2 id='population'>0</h2>
+        </div>
+        <canvas id="gc" width="1400" height="750"></canvas>
+    </body>
 </html>
+<style type="text/css">
+    .toolBox {
+        position: absolute;
+    }
+    .info {
+        position: absolute;
+        right: 50px;
+        color: white;
+    }
+</style>
+<script>
+
+function launchSimulation () {
+    pause = false
+    setInterval(tick, 1000/10)  // game velocity 
+}
+function pauseSimulation () {
+    pause = !pause
+}
+function stopSimulation () {
+    counter = 0
+    pause = false
+    canv=document.getElementById("gc")
+    ctx=canv.getContext("2d")
+    conf = {
+        multiplier: 10
+    }
+    theWorld = new World()
+    // var aCross = new Cross(70, 35, 1)
+    // var anotherCross = new Cross(74, 35, 1)
+    // var andAnother = new Cross(74, 31, 1)
+    // var andAnotherOther = new Cross(70, 39, 1)
+    // theWorld.setStartingCells(aCross.cells.concat(anotherCross.cells).concat(andAnother.cells).concat(andAnotherOther.cells))
+    theWorld.setStartingCells([
+        new Cell(70, 35, 1),
+        new Cell(70, 34, 1),
+        new Cell(70, 33, 1),
+        new Cell(71, 35, 1),
+        new Cell(72, 35, 1),
+        new Cell(72, 34, 1),
+        new Cell(72, 33, 1),
+
+        new Cell(70, 15, 1),
+        new Cell(70, 14, 1),
+        new Cell(70, 13, 1),
+        new Cell(71, 15, 1),
+        new Cell(72, 15, 1),
+        new Cell(72, 14, 1),
+        new Cell(72, 13, 1)
+    ])
+    theWorld.draw()
+    pause = true
+}
+window.onload=function() {
+    stopSimulation()
+}
+
+function World() {
+    this.currentPopulation = []
+    this.nextPopulation = []
+    this.maxWith = 0
+    this.minWidth = 1400
+    this.maxHeight = 0
+    this.minHeight = 750
+
+    this.draw = function () {
+        ctx.fillStyle="black"
+        ctx.fillRect(0,0,canv.width,canv.height)
+        for (var key in this.currentPopulation) {
+            this.currentPopulation[key].draw()
+        }
+    }
+    this.setStartingCells = function (startingCells) {
+        for (var i = 0; i < startingCells.length; i++) {
+            let aCell = startingCells[i]
+            this.currentPopulation[aCell.posx+'-'+aCell.posy] = aCell
+        }
+        this.recalcMaxes()
+    }
+    this.isPositionPopulated = function(posx, posy) {           // à optimiser probablement (current Population peut être un tableau indéxé)
+       
+       return this.currentPopulation[posx+'-'+posy] !== undefined
+    }
+    this.getNeighboors = function(aCell) {
+        const multiplier = conf.multiplier
+        var posx = aCell.posx
+        var posy = aCell.posy
+        var neighboors = []
+        if (this.isPositionPopulated((posx-1), (posy-1))) {   //1,1
+            neighboors.push(this.currentPopulation[(posx-1)+'-'+(posy-1)])
+        }
+        if (this.isPositionPopulated((posx-1), posy)) {   //1,2
+            neighboors.push(this.currentPopulation[(posx-1)+'-'+posy])
+        }
+        if (this.isPositionPopulated((posx-1), (posy+1))) {   //1,3
+            neighboors.push(this.currentPopulation[(posx-1)+'-'+(posy+1)])
+        }
+        if (this.isPositionPopulated(posx, (posy-1))) {   //2,1
+            neighboors.push(this.currentPopulation[posx+'-'+(posy-1)])
+        }
+        if (this.isPositionPopulated(posx, (posy+1))) {   //2,3
+            neighboors.push(this.currentPopulation[posx+'-'+(posy+1)])
+        }
+        if (this.isPositionPopulated((posx+1), (posy-1))) {   //3,1
+            neighboors.push(this.currentPopulation[(posx+1)+'-'+(posy-1)])
+        }
+        if (this.isPositionPopulated((posx+1), posy)) {   //3,2
+            neighboors.push(this.currentPopulation[(posx+1)+'-'+posy])
+        }
+        if (this.isPositionPopulated((posx+1), (posy+1))) {   //3,3
+            neighboors.push(this.currentPopulation[(posx+1)+'-'+(posy+1)])
+        }
+        return neighboors
+    }
+
+    this.recalcMaxes = function () {
+        for (var key in this.currentPopulation) {
+            var aCell = this.currentPopulation[key]
+            if (aCell.posx >= this.maxWith)
+                this.maxWith = aCell.posx + 1
+            if (aCell.posy >= this.maxHeight)
+                this.maxHeight = aCell.posy + 1
+            if (aCell.posx <= this.minWidth)
+                this.minWidth = aCell.posx - 1 
+            if (aCell.posy <= this.minHeight)
+                this.minHeight = aCell.posy - 1
+        }
+    }
+}
+
+function Cell(posx, posy, value) {
+    this.posx = posx
+    this.posy = posy
+    this.value = value
+
+    this.draw = function () {
+        let multiplier = conf.multiplier
+        ctx.fillStyle = 'rgb(255,255,'+ Math.floor((255/(this.value + 1))) + ')'
+        ctx.fillRect(this.posx * multiplier, this.posy * multiplier, multiplier, multiplier)
+    }
+}
+
+function Cross(posx, posy, value) {
+    this.posx = posx
+    this.posy = posy
+    this.value = value
+    this.cells = [
+        new Cell(posx, posy, value),
+        new Cell(posx-1, posy, value),
+        new Cell(posx+1, posy, value),
+        new Cell(posx, posy-1, value),
+        new Cell(posx, posy+1, value)
+    ]
+
+    // this.draw = function () {
+    //     for (var i = 0; i < cells.length; i++) {
+    //         cells[i].draw()
+    //     }
+    // }
+}
+
+
+function getSurvivors(thisWorld) {
+    // cell survival if it has 2 or 3 neighboors
+    for (var key in thisWorld.currentPopulation) {
+        let acell = thisWorld.currentPopulation[key]
+        let neighboors = thisWorld.getNeighboors(acell)
+        if (neighboors.length > 1 && neighboors.length < 4) {
+            thisWorld.nextPopulation[key] = acell
+        }
+    }
+
+    return thisWorld;
+}
+
+function addNewBirths(thisWorld) {
+    // cell birth cell is created if it has exactly 3 neighboors
+    for (var i = thisWorld.minWidth; i <= thisWorld.maxWith; i++) {
+        for (var j = thisWorld.minHeight; j <= thisWorld.maxHeight; j++) {
+            let aCell = new Cell(i, j, 0)
+            var neighboors = thisWorld.getNeighboors(aCell)
+            if (neighboors.length === 3) {
+                // var value = 0
+                // for (var k = 0; k < neighboors.length; k++) {
+                //     value += neighboors[k].value
+                // }
+                // value = value/2
+                // console.log(value)
+
+                // aCell.value = value
+                thisWorld.nextPopulation[i+'-'+j] = aCell
+            }
+        }
+    }
+    return thisWorld
+}
+
+function tick() {
+    if (!pause) {
+        getSurvivors(theWorld)
+        addNewBirths(theWorld)
+        theWorld.currentPopulation = theWorld.nextPopulation
+        theWorld.nextPopulation = []
+        theWorld.recalcMaxes()
+        theWorld.draw()
+        counter++
+        document.getElementById('counter').innerHTML = counter
+    }
+}
+
+</script>
