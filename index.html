@@ -46,29 +46,186 @@ function stopSimulation () {
     // var andAnotherOther = new Cross(70, 39, 1)
     // theWorld.setStartingCells(aCross.cells.concat(anotherCross.cells).concat(andAnother.cells).concat(andAnotherOther.cells))
     theWorld.setStartingCells([
-        new Cell(370, 135, 1),
-        new Cell(370, 134, 1),
-        new Cell(370, 133, 1),
-        new Cell(371, 135, 1),
-        new Cell(372, 135, 1),
-        new Cell(372, 134, 1),
-        new Cell(372, 133, 1),
+        new Cell(360, 130, [255, 10, 0, 1]),   //red
+        new Cell(360, 129, [255, 10, 0, 1]),
+        new Cell(360, 128, [255, 10, 0, 1]),
+        new Cell(361, 130, [255, 10, 0, 1]),
+        new Cell(362, 130, [255, 10, 0, 1]),
+        new Cell(362, 129, [255, 10, 0, 1]),
+        new Cell(362, 128, [255, 100, 0, 1]),
+        new Cell(370, 130, [255, 100, 0, 1]),   //red
+        new Cell(370, 129, [255, 100, 0, 1]),
+        new Cell(370, 128, [255, 100, 0, 1]),
+        new Cell(371, 130, [255, 100, 0, 1]),
+        new Cell(372, 130, [255, 100, 0, 1]),
+        new Cell(372, 129, [255, 100, 0, 1]),
+        new Cell(372, 128, [255, 100, 0, 1]),
+        new Cell(370, 115, [0, 255, 200, 1]),   //yellow
+        new Cell(370, 114, [0, 255, 200, 1]),
+        new Cell(370, 113, [0, 255, 200, 1]),
+        new Cell(371, 115, [0, 255, 200, 1]),
+        new Cell(372, 115, [0, 255, 200, 1]),
+        new Cell(372, 114, [0, 255, 200, 1]),
+        new Cell(372, 113, [0, 255, 200, 1]),
+        new Cell(360, 145, [0, 80, 255, 1]),   //blue
+        new Cell(360, 144, [0, 80, 255, 1]),
+        new Cell(360, 143, [0, 80, 255, 1]),
+        new Cell(361, 145, [0, 80, 255, 1]),
+        new Cell(362, 145, [0, 80, 255, 1]),
+        new Cell(362, 144, [0, 80, 255, 1]),
+        new Cell(362, 143, [0, 80, 255, 1]),
+        new Cell(380, 145, [10, 0, 255, 1]),   //blue
+        new Cell(380, 144, [10, 0, 255, 1]),
+        new Cell(380, 143, [10, 0, 255, 1]),
+        new Cell(381, 145, [10, 0, 255, 1]),
+        new Cell(382, 145, [10, 0, 255, 1]),
+        new Cell(382, 144, [10, 0, 255, 1]),
+        new Cell(382, 143, [10, 0, 255, 1]),
 
-        new Cell(370, 115, 1),
-        new Cell(370, 114, 1),
-        new Cell(370, 113, 1),
-        new Cell(371, 115, 1),
-        new Cell(372, 115, 1),
-        new Cell(372, 114, 1),
-        new Cell(372, 113, 1),
+        // new Cell(360, 230, [255, 10, 0, 1]),   //red
+        // new Cell(360, 229, [255, 10, 0, 1]),
+        // new Cell(360, 228, [255, 10, 0, 1]),
+        // new Cell(361, 230, [255, 10, 0, 1]),
+        // new Cell(362, 230, [255, 10, 0, 1]),
+        // new Cell(362, 229, [255, 10, 0, 1]),
+        // new Cell(362, 228, [255, 100, 0, 1]),
+        // new Cell(370, 230, [255, 100, 0, 1]),   //red
+        // new Cell(370, 229, [255, 100, 0, 1]),
+        // new Cell(370, 228, [255, 100, 0, 1]),
+        // new Cell(371, 230, [255, 100, 0, 1]),
+        // new Cell(372, 230, [255, 100, 0, 1]),
+        // new Cell(372, 229, [255, 100, 0, 1]),
+        // new Cell(372, 228, [255, 100, 0, 1]),
+        // new Cell(370, 215, [0, 255, 200, 1]),   //yellow
+        // new Cell(370, 214, [0, 255, 200, 1]),
+        // new Cell(370, 213, [0, 255, 200, 1]),
+        // new Cell(371, 215, [0, 255, 200, 1]),
+        // new Cell(372, 215, [0, 255, 200, 1]),
+        // new Cell(372, 214, [0, 255, 200, 1]),
+        // new Cell(372, 213, [0, 255, 200, 1]),
+        // new Cell(360, 245, [0, 80, 255, 1]),   //blue
+        // new Cell(360, 244, [0, 80, 255, 1]),
+        // new Cell(360, 243, [0, 80, 255, 1]),
+        // new Cell(361, 245, [0, 80, 255, 1]),
+        // new Cell(362, 245, [0, 80, 255, 1]),
+        // new Cell(362, 244, [0, 80, 255, 1]),
+        // new Cell(362, 243, [0, 80, 255, 1]),
+        // new Cell(380, 245, [10, 0, 255, 1]),   //blue
+        // new Cell(380, 244, [10, 0, 255, 1]),
+        // new Cell(380, 243, [10, 0, 255, 1]),
+        // new Cell(381, 245, [10, 0, 255, 1]),
+        // new Cell(382, 245, [10, 0, 255, 1]),
+        // new Cell(382, 244, [10, 0, 255, 1]),
+        // new Cell(382, 243, [10, 0, 255, 1]),
 
-        new Cell(370, 155, 1),
-        new Cell(370, 154, 1),
-        new Cell(370, 153, 1),
-        new Cell(371, 155, 1),
-        new Cell(372, 155, 1),
-        new Cell(372, 154, 1),
-        new Cell(372, 153, 1)
+
+        // new Cell(260, 230, [255, 10, 0, 1]),   //red
+        // new Cell(260, 229, [255, 10, 0, 1]),
+        // new Cell(260, 228, [255, 10, 0, 1]),
+        // new Cell(261, 230, [255, 10, 0, 1]),
+        // new Cell(262, 230, [255, 10, 0, 1]),
+        // new Cell(262, 229, [255, 10, 0, 1]),
+        // new Cell(262, 228, [255, 100, 0, 1]),
+        // new Cell(270, 230, [255, 100, 0, 1]),   //red
+        // new Cell(270, 229, [255, 100, 0, 1]),
+        // new Cell(270, 228, [255, 100, 0, 1]),
+        // new Cell(271, 230, [255, 100, 0, 1]),
+        // new Cell(272, 230, [255, 100, 0, 1]),
+        // new Cell(272, 229, [255, 100, 0, 1]),
+        // new Cell(272, 228, [255, 100, 0, 1]),
+        // new Cell(270, 215, [0, 255, 200, 1]),   //yellow
+        // new Cell(270, 214, [0, 255, 200, 1]),
+        // new Cell(270, 213, [0, 255, 200, 1]),
+        // new Cell(271, 215, [0, 255, 200, 1]),
+        // new Cell(272, 215, [0, 255, 200, 1]),
+        // new Cell(272, 214, [0, 255, 200, 1]),
+        // new Cell(272, 213, [0, 255, 200, 1]),
+        // new Cell(260, 245, [0, 80, 255, 1]),   //blue
+        // new Cell(260, 244, [0, 80, 255, 1]),
+        // new Cell(260, 243, [0, 80, 255, 1]),
+        // new Cell(261, 245, [0, 80, 255, 1]),
+        // new Cell(262, 245, [0, 80, 255, 1]),
+        // new Cell(262, 244, [0, 80, 255, 1]),
+        // new Cell(262, 243, [0, 80, 255, 1]),
+        // new Cell(280, 245, [10, 0, 255, 1]),   //blue
+        // new Cell(280, 244, [10, 0, 255, 1]),
+        // new Cell(280, 243, [10, 0, 255, 1]),
+        // new Cell(281, 245, [10, 0, 255, 1]),
+        // new Cell(282, 245, [10, 0, 255, 1]),
+        // new Cell(282, 244, [10, 0, 255, 1]),
+        // new Cell(282, 243, [10, 0, 255, 1]),
+
+        // new Cell(260, 130, [255, 10, 0, 1]),   //red
+        // new Cell(260, 129, [255, 10, 0, 1]),
+        // new Cell(260, 128, [255, 10, 0, 1]),
+        // new Cell(261, 130, [255, 10, 0, 1]),
+        // new Cell(262, 130, [255, 10, 0, 1]),
+        // new Cell(262, 129, [255, 10, 0, 1]),
+        // new Cell(262, 128, [255, 100, 0, 1]),
+        // new Cell(270, 130, [255, 100, 0, 1]),   //red
+        // new Cell(270, 129, [255, 100, 0, 1]),
+        // new Cell(270, 128, [255, 100, 0, 1]),
+        // new Cell(271, 130, [255, 100, 0, 1]),
+        // new Cell(272, 130, [255, 100, 0, 1]),
+        // new Cell(272, 129, [255, 100, 0, 1]),
+        // new Cell(272, 128, [255, 100, 0, 1]),
+        // new Cell(270, 115, [0, 255, 200, 1]),   //yellow
+        // new Cell(270, 114, [0, 255, 200, 1]),
+        // new Cell(270, 113, [0, 255, 200, 1]),
+        // new Cell(271, 115, [0, 255, 200, 1]),
+        // new Cell(272, 115, [0, 255, 200, 1]),
+        // new Cell(272, 114, [0, 255, 200, 1]),
+        // new Cell(272, 113, [0, 255, 200, 1]),
+        // new Cell(260, 145, [0, 80, 255, 1]),   //blue
+        // new Cell(260, 144, [0, 80, 255, 1]),
+        // new Cell(260, 143, [0, 80, 255, 1]),
+        // new Cell(261, 145, [0, 80, 255, 1]),
+        // new Cell(262, 145, [0, 80, 255, 1]),
+        // new Cell(262, 144, [0, 80, 255, 1]),
+        // new Cell(262, 143, [0, 80, 255, 1]),
+        // new Cell(280, 145, [10, 0, 255, 1]),   //blue
+        // new Cell(280, 144, [10, 0, 255, 1]),
+        // new Cell(280, 143, [10, 0, 255, 1]),
+        // new Cell(281, 145, [10, 0, 255, 1]),
+        // new Cell(282, 145, [10, 0, 255, 1]),
+        // new Cell(282, 144, [10, 0, 255, 1]),
+        // new Cell(282, 143, [10, 0, 255, 1]),
+
+        // new Cell(210, 130, [255, 10, 0, 1]),   //red
+        // new Cell(210, 129, [255, 10, 0, 1]),
+        // new Cell(210, 128, [255, 10, 0, 1]),
+        // new Cell(211, 130, [255, 10, 0, 1]),
+        // new Cell(212, 130, [255, 10, 0, 1]),
+        // new Cell(212, 129, [255, 10, 0, 1]),
+        // new Cell(212, 128, [255, 100, 0, 1]),
+        // new Cell(220, 130, [255, 100, 0, 1]),   //red
+        // new Cell(220, 129, [255, 100, 0, 1]),
+        // new Cell(220, 128, [255, 100, 0, 1]),
+        // new Cell(221, 130, [255, 100, 0, 1]),
+        // new Cell(222, 130, [255, 100, 0, 1]),
+        // new Cell(222, 129, [255, 100, 0, 1]),
+        // new Cell(222, 128, [255, 100, 0, 1]),
+        // new Cell(220, 115, [0, 255, 200, 1]),   //yellow
+        // new Cell(220, 114, [0, 255, 200, 1]),
+        // new Cell(220, 113, [0, 255, 200, 1]),
+        // new Cell(221, 115, [0, 255, 200, 1]),
+        // new Cell(222, 115, [0, 255, 200, 1]),
+        // new Cell(222, 114, [0, 255, 200, 1]),
+        // new Cell(222, 113, [0, 255, 200, 1]),
+        new Cell(210, 145, [0, 80, 255, 1]),   //blue
+        new Cell(210, 144, [0, 80, 255, 1]),
+        new Cell(210, 143, [0, 80, 255, 1]),
+        new Cell(211, 145, [0, 80, 255, 1]),
+        new Cell(212, 145, [0, 80, 255, 1]),
+        new Cell(212, 144, [0, 80, 255, 1]),
+        new Cell(212, 143, [0, 80, 255, 1]),
+        new Cell(231, 145, [10, 0, 255, 1]),   //blue
+        new Cell(231, 144, [10, 0, 255, 1]),
+        new Cell(231, 143, [10, 0, 255, 1]),
+        new Cell(231, 145, [10, 0, 255, 1]),
+        new Cell(282, 145, [10, 0, 255, 1]),
+        new Cell(282, 144, [10, 0, 255, 1]),
+        new Cell(282, 143, [10, 0, 255, 1])
 
         // new Cell(50, 55, 1),
         // new Cell(50, 54, 1),
@@ -140,7 +297,6 @@ function World() {
         }
         if (!this.isPositionPopulated((posx-1), (posy+1))) {   //1,3
             neighboors.push(new Cell(posx-1, posy+1, 0))
-
         }
         if (!this.isPositionPopulated(posx, (posy-1))) {   //2,1
             neighboors.push(new Cell(posx, posy-1, 0))
@@ -214,7 +370,7 @@ function Cell(posx, posy, value) {
 
     this.draw = function () {
         let multiplier = conf.multiplier
-        ctx.fillStyle = 'rgb(255,255,'+ Math.floor((255/(this.value + 1))) + ')'
+        ctx.fillStyle = 'rgba('+this.value[0]+', '+this.value[1]+', '+this.value[2]+', '+this.value[3]+')'
         ctx.fillRect(this.posx * multiplier, this.posy * multiplier, multiplier, multiplier)
     }
 }
@@ -251,7 +407,9 @@ function getSurvivors(thisWorld) {
         let unhabitedSpaces = thisWorld.getUnhabitedSpaces(acell)
         for (var j = 0; j < unhabitedSpaces.length; j++) {
             let aNewCell = unhabitedSpaces[j];
-            if (thisWorld.getNeighboors(aNewCell).length === 3) {
+            var newNeighboors = thisWorld.getNeighboors(aNewCell)
+            if (newNeighboors.length === 3) {
+                aNewCell.value = mix(newNeighboors[0].value, newNeighboors[1].value, newNeighboors[2].value)
                 thisWorld.nextPopulation[aNewCell.posx+'-'+aNewCell.posy] = aNewCell
             }
         }
@@ -287,5 +445,58 @@ function tick() {
         document.getElementById('counter').innerHTML = counter
     }
 }
+
+function mix(color1, color2, color3) {          // var color1 = [r, g, b, a]
+  color1 = new Array(color1,color2, color3);
+  var C = 0;
+  var M = 0;
+  var Y = 0;
+  var K = 0;
+  var A = 0;
+  for(var i=0;i<color1.length;i++){
+    color1[i] = toCMYK(color1[i]);
+    C += color1[i].c;
+    M += color1[i].m;
+    Y += color1[i].y;
+    K += color1[i].k;
+    A += color1[i].a;
+  }
+  C = C/color1.length;
+  M = M/color1.length;
+  Y = Y/color1.length;
+  K = K/color1.length;
+  A = A/color1.length;
+  var color = {c:C,m:M,y:Y,k:K,a:A};
+  color = toRGB(color);
+  return color;
+}
+
+function toCMYK(color) {
+  var cyan    = 255 - color[0];
+  var magenta = 255 - color[1];
+  var yellow  = 255 - color[2];
+  black   = Math.min(cyan, magenta, yellow);
+  cyan    = ((cyan - black) / (255 - black));
+  magenta = ((magenta - black) / (255 - black));
+  yellow  = ((yellow  - black) / (255 - black));
+
+  return {c:cyan,m:magenta,y:yellow,k:black/255,a:color[3]};
+}
+
+function toRGB(color) {
+  color.c = color.c;
+  color.m = color.m;
+  color.y = color.y;
+  color.k = color.k;
+  var R = color.c * (1.0 - color.k) + color.k;
+  var G = color.m * (1.0 - color.k) + color.k;
+  var B = color.y * (1.0 - color.k) + color.k;
+  R = Math.round((1.0 - R) * 255.0 + 0.5);
+  G = Math.round((1.0 - G) * 255.0 + 0.5);
+  B = Math.round((1.0 - B) * 255.0 + 0.5);
+  color = [R,G,B,Math.round(color.a)]
+  return color;
+}
+
 
 </script>
